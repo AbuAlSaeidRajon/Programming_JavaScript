@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #loader {
+    display: none;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -15px;
+  }
+  
+  body {
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  header {
+    min-width: 100%;
+    max-width: 600px;
+    max-height: 200px;
+    margin: 12px px;
+    text-align: center;
+    position: relative;
+  }
+  
+  @keyframes appearance {
+    0% {
+      height: 100px;
+      opacity: 0;
+    }
+    60% {
+      opacity: 0.4;
+      height: 160px;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .heading {
+    height: 150px;
+    animation: appearance 2s ease-out forwards; 
+  
+  }
+  
+  
+  header .main-logo {
+    width: 150px;
+    position: absolute;
+    left: 0;
+    margin: 20px 0 0 20px;
+  }
+  
+  
+  
+  main {
+    height: 70vh;
+    width: 70vw;
+    background: linear-gradient(#fffff0, #8b0000 70%);
+    padding: 20px 0;
+    margin: 20px 0 50px 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 3px grey;
+  }
+  
+  main .magic-section {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .inputContainer {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #userInput {
+    height: 50px;
+    width: 70%;
+    padding: 5px 5px;
+    margin: 10px 10px;
+    border-radius: 25px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+  }
+  
+  #emojiContainer {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btnAsk,
+  .mainBtn,
+  .btn {
+    height: 200px;
+    width: 200px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    background: transparent;
+  }
+  
+  .btnAsk:hover,
+  .mainBtn:hover,
+  .btn:hover {
+    box-shadow: 0 0 10px 5px #766255a2;
+  }
+  
+  /* Define a CSS class for the spinning animation */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Apply the spinning animation to the element with the "spin" class */
+  .spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes jark {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(10px, 10px);
+    }
+    50% {
+      transform: translate(-10px, -10px);
+    }
+    75% {
+      transform: translate(-10px, 10px);
+    }
+  }
+  
+  
+  
+  /* Apply the jarking animation to the element with the "jark" class */
+  .jark {
+    animation: jark 0.5s ease-in-out 4;
+  }
+  
+  
+  .output {
+    position: relative;
+    margin-top: 20px;
+    height: 400px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  #printUserInput,
+  #response,
+  .warning {
+    background-color: #ffffff;
+    color: #001f3f;
+    max-width: 100%;
+    padding: 6px 10px;
+    margin: 10px 10px;
+    font-size: 24px;
+    border-radius: 5px;
+    display: none;
+  }
+  
+  .warning {
+    background-color: #fff;
+    color: rgb(182, 15, 15);
+    /* transform:skew(5); */
+  }
+  
+  
+  
+  @keyframes slideInFromBottomAndBounce {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    60% {
+      opacity: 0.4;
+      transform: translateY(0);
+    }
+    80% {
+      opacity: 0.6;
+      transform: translateY(-10px); /* Bounce up */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Return to normal position */
+    }
+  }
+  
+  .playLine {
+    font-size: 70px;
+    color: #fffff0;
+    font-family: cursive;
+    opacity: 0;
+    animation: slideInFromBottomAndBounce 2s ease-out forwards; 
+  }
+  
+  /* footer style  */
+  
+  footer {
+    color: #fffff0;
+    min-height: 80px;
+    max-height: 120px;
+    width: 100vw;
+    /* background-color: #001f3f; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Mobile Styles */
+  @media screen and (max-width: 767px) {
+    header .main-logo {
+      width: 100px; /* Adjust the logo size for mobile */
+      margin: 10px 0 0 10px;
+    }
+  
+    .heading {
+      height: 70px;
+    }
+  
+    main {
+      width: 90%;
+    }
+  
+    .inputContainer {
+      height: auto; /* Adjust the height for mobile */
+    }
+  
+    #userInput {
+      width: 90%;
+      height: 40px;
+      padding: 5px 5px;
+      margin: 10px 10px;
+      border-radius: 25px;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 16px;
+    }
+  
+    #emojiContainer {
+      width: 80%;
+    }
+  
+    .btnAsk,
+    .mainBtn,
+    .btn {
+      height: 100px; /* Adjust button height for mobile */
+      width: 100px; /* Adjust button width for mobile */
+      font-size: 16px; /* Adjust button font size for mobile */
+    }
+  
+    .output {
+      height: auto; /* Adjust the height for mobile */
+    }
+    .playLine {
+      font-size: 22px;
+    }
+  }
+  
+  /* Tablet Styles */
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    header .main-logo {
+      width: 100px; /* Adjust the logo size for tablets */
+      margin: 15px 0 0 15px;
+    }
+  
+    main {
+      width: 80%;
+    }
+  
+    .inputContainer {
+      height: 250px; /* Adjust the height for tablets */
+    }
+  
+    #userInput {
+      width: 80%;
+    }
+  
+    #emojiContainer {
+      width: 70%;
+    }
+  
+    .btnAsk,
+    .mainBtn,
+    .btn {
+      height: 150px; /* Adjust button height for tablets */
+      width: 150px; /* Adjust button width for tablets */
+      font-size: 20px; /* Adjust button font size for tablets */
+    }
+  
+    .output {
+      height: 300px; /* Adjust the height for tablets */
+    }
+  }
+  
+  .hide{
+    display: none;
+  }
