@@ -1,6 +1,6 @@
 class Car {
-    constructor(licensePlateNumber, maker, model, owner, price, color) {
-      this.licensePlate = licensePlateNumber;
+    constructor(licensePlate, maker, model, owner, price, color) {
+      this.licensePlate = licensePlate;
       this.maker = maker;
       this.model = model;
       this.owner = owner;
@@ -8,6 +8,7 @@ class Car {
       this.color = color;
     }
   }
+  
   const carArray = [];
   
   const carForm = document.getElementById('car-form');
@@ -24,7 +25,7 @@ class Car {
     displayCars();
     carForm.reset();
   });
-
+  
   const searchButton = document.getElementById('search-button');
   searchButton.addEventListener('click', () => {
     const searchInput = document.getElementById('search-input').value;
@@ -48,4 +49,16 @@ class Car {
     });
   }
   
-  
+  function searchCar(licensePlate) {
+    try {
+      const car = carArray.find((car) => car.licensePlate === licensePlate);
+      if (car) {
+        alert(`Make: ${car.maker}\nModel: ${car.model}\nOwner: ${car.owner}`);
+      } else {
+        alert('No matching car found.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Invalid search input.');
+    }
+  }
