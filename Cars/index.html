@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars Database</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1>Cars Database</h1>
+
+    <h2>Insert Car Data</h2>
+    <form id="car-form">
+        <input type="text" id="license-plate" placeholder="License Plate Number" required>
+        <input type="text" id="maker" placeholder="Maker" required>
+        <input type="text" id="model" placeholder="Model" required>
+        <input type="text" id="owner" placeholder="Owner" required>
+        <input type="number" id="price" placeholder="Price" required>
+        <input type="text" id="color" placeholder="Color" required>
+        <button type="add_to_base">Add to Database</button>
+      </form>
+
+<h2>Cars Database</h2>  
+    <table id="car-table">
+        <thead>
+          <tr>
+            <th>License Plate Number</th>
+            <th>Maker</th>
+            <th>Model</th>
+            <th>Owner</th>
+            <th>Price</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody id="car-table-body"></tbody>
+      </table> <br>
+
+      <input type="text" id="search-input" placeholder="Search by License Number">
+    <button id="search-button">Search</button> <br> <br>
+      
+<script src="script.js"></script></body>
+</html>
