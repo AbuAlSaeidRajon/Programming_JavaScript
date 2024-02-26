@@ -24,5 +24,11 @@ class Car {
     displayCars();
     carForm.reset();
   });
+
+  const searchButton = document.getElementById('search-button');
+  searchButton.addEventListener('click', () => {
+    const searchInput = document.getElementById('search-input').value;
+    searchCar(searchInput);
+  });
   
   
