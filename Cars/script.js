@@ -1,6 +1,6 @@
 class Car {
-    constructor(licensePlate, maker, model, owner, price, color) {
-      this.licensePlate = licensePlate;
+    constructor(licensePlateNumber, maker, model, owner, price, color) {
+      this.licensePlate = licensePlateNumber;
       this.maker = maker;
       this.model = model;
       this.owner = owner;
