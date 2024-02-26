@@ -14,4 +14,6 @@ function task5(array, index) {
         console.error(error.message);
     }
   }
-  task5();
+ 
+  task5([1, 2, 3], 5); // error
+  task5([1, 2, 3], 3); // working
