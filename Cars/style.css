@@ -16,4 +16,10 @@ body {
     margin-bottom: 20px;
   }
   
+  input,
+  button {
+    flex-basis: calc(100% - 10px);
+    margin-bottom: 10px;
+  }
+  
   
