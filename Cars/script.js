@@ -31,4 +31,21 @@ class Car {
     searchCar(searchInput);
   });
   
+  function displayCars() {
+    const carTableBody = document.getElementById('car-table-body');
+    carTableBody.innerHTML = '';
+    carArray.forEach((car) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${car.licensePlate}</td>
+        <td>${car.maker}</td>
+        <td>${car.model}</td>
+        <td>${car.owner}</td>
+        <td>${car.price}</td>
+        <td>${car.color}</td>
+      `;
+      carTableBody.appendChild(row);
+    });
+  }
+  
   
