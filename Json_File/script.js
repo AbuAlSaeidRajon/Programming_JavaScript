@@ -24,6 +24,7 @@ const displayData = (data) => {
   console.log(data);
   const container = document.querySelector("#foxesContainer");
 
+  //   data.forEach((post) => {
   data.forEach((user) => {
     const postElement = document.createElement("div");
 
