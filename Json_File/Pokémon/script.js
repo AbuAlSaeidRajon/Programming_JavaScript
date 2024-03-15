@@ -34,7 +34,7 @@ searchInput.addEventListener('input', searchFoxes); */
 const searchPokemons = (searchInput) => {
 /* console.log(searchInpit); to check what data we are getting in console */
   const filteredData = pokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(wateeveeee.toLowerCase())
+    pokemon.name.toLowerCase().includes(searchInput.toLowerCase())
   );
   displayData(filteredData);
 };
