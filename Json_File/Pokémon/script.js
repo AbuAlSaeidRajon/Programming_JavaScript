@@ -1,12 +1,12 @@
 let pokemons = [];
 
 const fetchData = () => {
-  fetch('https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0')
+  fetch('https://pokeapi.co/api/v2/pokemon?limit=500&offset=0')
     .then((response) => response.json())
     .then((json) => {
       pokemons = json.results;
       displayData(pokemons);
-    });
+    }).catch((error) => console.error("Error fetching data:", error));
 };
 
 fetchData();
