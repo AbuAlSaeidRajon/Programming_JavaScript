@@ -1,15 +1,18 @@
 let pokemons = [];
 
 const fetchData = () => {
-  fetch("https://pokeapi.co/api/v2/pokemon?limit=500&offset=0")
+  fetch("https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0")
     .then((response) => response.json())
     .then((json) => {
       const fetches = json.results.map((item) => {
-        return fetch(item.url).then(res.json());
+        return fetch(item.url).then((res) => res.json());
       });
 
-      pokemons = json.results;
-      displayData(pokemons);
+      Promise.all(fetches).then((data) => {
+        pokemons = data;
+        displayData(pokemons);
+        // console.log(pokemons);
+      });
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
@@ -22,7 +25,12 @@ const displayData = (data) => {
 
   data.forEach((pokemon) => {
     const pokemonCard = document.createElement("div");
-    pokemonCard.innerHTML = `<h2>${pokemon.name}</h2>`;
+    pokemonCard.innerHTML = `<h2>${pokemon.name}</h2>
+    <div class="card">
+    <p>Weight: ${pokemon.weight / 10} kg</p> 
+    <p>Height: ${pokemon.height / 10} m</p>
+    </div>
+    `;
     container.appendChild(pokemonCard);
   });
 };
