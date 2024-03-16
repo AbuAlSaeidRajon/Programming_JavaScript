@@ -1,7 +1,7 @@
 let pokemons = [];
 
 const fetchData = () => {
-  fetch("https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0")
+  fetch('https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0')
     .then((response) => response.json())
     .then((json) => {
       const fetches = json.results.map((item) => {
@@ -11,28 +11,50 @@ const fetchData = () => {
       Promise.all(fetches).then((data) => {
         pokemons = data;
         displayData(pokemons);
-        // console.log(pokemons);
+        console.log(pokemons);
       });
     })
-    .catch((error) => console.error("Error fetching data:", error));
+    .catch((error) => console.error('Error fetching data:', error));
 };
 
 fetchData();
 
 const displayData = (data) => {
-  const container = document.querySelector(".data");
-  container.innerHTML = "";
+  const container = document.querySelector('.data');
+  container.innerHTML = '';
 
   data.forEach((pokemon) => {
-    const pokemonCard = document.createElement("div");
+    const pokemonCard = document.createElement('div');
+    const imageUrl =
+      pokemon.sprites.other.dream_world.front_default ??
+      pokemon.sprites.other['official-artwork'].front_default ??
+      'assets/placeholder-image-url.webp';
+
+    const isFavorite = localStorage.getItem(pokemon.name) === 'true';
+    const favoriteText = isFavorite ? 'Unmark favorite' : 'Mark favorite';
+
     pokemonCard.innerHTML = `<h2>${pokemon.name}</h2>
+    <img src="${imageUrl}"/>
     <div class="card">
-    <p>Weight: ${pokemon.weight / 10} kg</p> 
-    <p>Height: ${pokemon.height / 10} m</p>
+      <p>Weight: ${pokemon.weight / 10} kg</p>
+      <p>Height: ${pokemon.height / 10} m</p>
     </div>
+    <button id="favButton" data-name=${pokemon.name}> ${favoriteText}</button>
     `;
     container.appendChild(pokemonCard);
   });
+  addFavorites();
+};
+
+const toggleFavorite = (e) => {
+  const pokemonName = e.target.getAttribute('data-name');
+  console.log(pokemonName);
+};
+
+const addFavorites = () => {
+  document
+    .querySelectorAll('#favButton')
+    .forEach((button) => button.addEventListener('click', toggleFavorite));
 };
 
 const debounce = (func, delay) => {
@@ -45,23 +67,14 @@ const debounce = (func, delay) => {
   };
 };
 
-/* 
-const searchInput = document.querySelector('#search');
-
-const searchFoxes = (e) => {
-  console.log(e.target.value);
-};
-
-searchInput.addEventListener('input', searchFoxes); */
-
 const searchPokemons = debounce((searchInput) => {
-  /* console.log(searchInpit); to check what data we are getting in console */
+  console.log('search triggered');
   const filteredData = pokemons.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchInput.toLowerCase())
   );
   displayData(filteredData);
 }, 300);
 
-document.querySelector("#search").addEventListener("input", (e) => {
+document.querySelector('#search').addEventListener('input', (e) => {
   searchPokemons(e.target.value);
 });
